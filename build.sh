@@ -48,5 +48,22 @@ dd if=asm/00C22.bin of="$ROM" conv=notrunc bs=1 seek=3106
 dd if=asm/1CC31.bin of="$ROM" conv=notrunc bs=1 seek=117809
 
 echo "\nUpdating graphics..."
-## ...
+## title screen copyright
+dd if=gfx/24A90.bin of="$ROM" conv=notrunc bs=1 seek=150160
+## subway
+dd if=gfx/27800.bin of="$ROM" conv=notrunc bs=1 seek=161792
+dd if=gfx/278F0.bin of="$ROM" conv=notrunc bs=1 seek=162032
+dd if=gfx/279F0.bin of="$ROM" conv=notrunc bs=1 seek=162288
+## health foods
+dd if=gfx/287A0.bin of="$ROM" conv=notrunc bs=1 seek=165792
+dd if=gfx/28850.bin of="$ROM" conv=notrunc bs=1 seek=165968
+## absolute avenue
+dd if=gfx/298D0.bin of="$ROM" conv=notrunc bs=1 seek=170192
+dd if=gfx/29A00.bin of="$ROM" conv=notrunc bs=1 seek=170496
+## graffiti
+dd if=gfx/29AD0.bin of="$ROM" conv=notrunc bs=1 seek=170704
+dd if=gfx/29B90.bin of="$ROM" conv=notrunc bs=1 seek=170896
+dd if=gfx/29CE0.bin of="$ROM" conv=notrunc bs=1 seek=171232
+dd if=gfx/29DF0.bin of="$ROM" conv=notrunc bs=1 seek=171504
+
 
