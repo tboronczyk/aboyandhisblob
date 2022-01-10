@@ -42,6 +42,10 @@ dd if=gfx/28EA0.bin of="$ROM" conv=notrunc bs=1 seek=167584
 echo "\nUpdating text..."
 dd if=text/00D33.bin of="$ROM" conv=notrunc bs=1 seek=3379
 dd if=text/00DAA.bin of="$ROM" conv=notrunc bs=1 seek=3498
+## plural
+dd if=asm/00C06.bin of="$ROM" conv=notrunc bs=1 seek=3078
+dd if=asm/00C22.bin of="$ROM" conv=notrunc bs=1 seek=3106
+dd if=asm/1CC31.bin of="$ROM" conv=notrunc bs=1 seek=117809
 
 echo "\nUpdating graphics..."
 ## ...

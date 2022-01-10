@@ -1,0 +1,75 @@
+The message area at the bottom of the screen shows the quantity of
+jellybeans. The word “JELLYBEAN” is plural when the quantity is not 1.
+Example:
+
+    72 LICORICE JELLYBEANS
+     1 LICORICE JELLYBEAN
+     0 LICORICE JELLYBEANS
+
+The "S" is added by code (JELLYBEAN is stored at ROM $0EA0, JELLYBEANS
+at ROM $0D33 is used for treasure, not for this)
+
+    ROM $0DAA-0DC5 pointer table for text strings
+    ROM $0DC6-0EA9 Text strings for jellybean flavors and effects
+
+    RAM $0098      index of currently selected jellybean 
+    RAM $02A2-02BD message area text in memory (tile numbers, for example:
+                   0x00 = space, 0x01 = 0, 0x02 = 1, ... 0x0B = A, etc)
+    RAM $02BE-02D7 quantity of jelly beans (stored as hex, for example 72
+                   is 0x00 0x72)
+
+
+@0C06
+-------------------------------------
+JSR PLURAL_SPACE          20 21 CC
+
+
+@0C22
+-------------------------------------
+JSR PLURAL_SPACE          20 21 CC
+NOP                       EA
+NOP                       EA
+NOP                       EA
+
+@1CC31
+-------------------------------------
+PLURAL_SPACE:
+    ;conditionally write "J" to make word plural
+    ;and then a space
+
+    ;current bean index
+    LDA $98                   A5 98
+
+    ;shift bean index to use as qty index (qty is
+    ;stored as 2 bytes)
+    ASL                       OA
+
+    ;get 1st byte of qty of current bean
+    TAX                       AA
+    LDA $02BE,X               BD BE 02 
+
+    ;if non-zero value then go to PLURAL
+    BNE WRITE_PLURAL          D0 0E
+
+    ;get 2nd byte qty
+    LDA $02BF,X               BD BF 02 
+
+    ;if qty == 1 then go to SPACE
+    CMP #$01                  C9 01
+    BEQ SPACE                 F0 06
+
+PLURAL:
+    ;write "J"
+    LDA #$1D                  A9 14
+    STA $02A2,Y               99 A2 02
+    INY                       C8
+
+SPACE:
+    ;write space
+    LDA #$00                  A9 00
+    STA $02A2,Y               99 A2 02
+    INY                       C8
+
+    ;so long and thanks for all the fish/beans
+    RTS                       60
+
