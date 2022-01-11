@@ -41,7 +41,7 @@ The following tasks are (more or less) complete.
 The following tasks are still outstanding (in approximate order of importance).
 **Contributors are welcome!**
 
-  * Fix vitamins text
+  * Shop text
   * Translate game credits
   * Translate winning end text
   * Build/patching documentation
