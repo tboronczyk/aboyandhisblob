@@ -12,64 +12,55 @@ at ROM $0D33 is used for treasure, not for this)
     ROM $0DAA-0DC5 pointer table for text strings
     ROM $0DC6-0EA9 Text strings for jellybean flavors and effects
 
-    RAM $0098      index of currently selected jellybean 
-    RAM $02A2-02BD message area text in memory (tile numbers, for example:
-                   0x00 = space, 0x01 = 0, 0x02 = 1, ... 0x0B = A, etc)
-    RAM $02BE-02D7 quantity of jelly beans (stored as hex, for example 72
-                   is 0x00 0x72)
+    RAM $0098      BNIDX  index of currently selected jellybean 
+    RAM $02A2-02BD MSGTXT message area text in memory (tile numbers, for
+                          example: 0x00 = space, 0x01 = 0, 0x02 = 1, ...
+                          0x0B = A, etc)
+    RAM $02BE-02D7 BNQTY  quantity of jelly beans (stored as hex, for
+                          example 72 is 0x00 0x72)
 
 
 @0C06
--------------------------------------
-JSR PLURAL_SPACE          20 21 CC
+-------------------------
+; OVERWRITE EXISTING TO
+; JMP TO PLRSPC
+;
+JSR PLRSPC                   20 21 CC
 
 
 @0C22
--------------------------------------
-JSR PLURAL_SPACE          20 21 CC
-NOP                       EA
-NOP                       EA
-NOP                       EA
+------------------------
+; OVERWRITE EXISTING TO
+; JMP TO PLRSPC
+;
+JSR PLRSPC                   20 21 CC
+NOP                          EA
+NOP                          EA
+NOP                          EA
 
 @1CC31
--------------------------------------
-PLURAL_SPACE:
-    ;conditionally write "J" to make word plural
-    ;and then a space
+-------------------------------------------------------
+; CONDITIONALLY WRITE "J" TO PLURALIZE THE PRECEEDING
+; WORD AND THEN ADD A SPACE
+;
+PLRSPC LDA BNIDX        ; SHIFT BEAN INDEX TO USE AS       A5 98
+       ASL              ; QTY INDEX (QTY IS STORED AS      0A
+       TAX              ; 2 BYTES)                         AA
 
-    ;current bean index
-    LDA $98                   A5 98
+       LDA BNQTY[0],X   ; CHECK 1ST BYTE OF CURRENT        BD BE 02
+       BNE PLURAL       ; BEAN QTY                         D0 0E
 
-    ;shift bean index to use as qty index (qty is
-    ;stored as 2 bytes)
-    ASL                       OA
+       LDA BNQTY[1],X   ; CHECK 2ND BYTE                   BD BF 02
+       CMP #$01                                            C9 01
+       BEQ SPACE                                           F0 06
 
-    ;get 1st byte of qty of current bean
-    TAX                       AA
-    LDA $02BE,X               BD BE 02 
+PLURAL LDA #$14         ; J IS TILE OFFSET 14              A9 14
+       STA MSGTXT,Y                                        99 A2 02
+       INY                                                 C8
 
-    ;if non-zero value then go to PLURAL
-    BNE WRITE_PLURAL          D0 0E
+SPACE  LDA #$00         ; SPACE IS TILE OFFSET 00          A9 00
+       STA MSGTXT,Y                                        99 A2 02
+       INY                                                 C8
 
-    ;get 2nd byte qty
-    LDA $02BF,X               BD BF 02 
-
-    ;if qty == 1 then go to SPACE
-    CMP #$01                  C9 01
-    BEQ SPACE                 F0 06
-
-PLURAL:
-    ;write "J"
-    LDA #$1D                  A9 14
-    STA $02A2,Y               99 A2 02
-    INY                       C8
-
-SPACE:
-    ;write space
-    LDA #$00                  A9 00
-    STA $02A2,Y               99 A2 02
-    INY                       C8
-
-    ;so long and thanks for all the fish/beans
-    RTS                       60
+       RTS  ; SO LONG AND THANKS FOR ALL THE FISHBEANS     60
 
