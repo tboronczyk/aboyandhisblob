@@ -38,7 +38,7 @@ NOP                          EA
 NOP                          EA
 NOP                          EA
 
-@1CC31
+@1CC31 ($CC21)
 -------------------------------------------------------
 ; CONDITIONALLY WRITE "J" TO PLURALIZE THE PRECEEDING
 ; WORD AND THEN ADD A SPACE
