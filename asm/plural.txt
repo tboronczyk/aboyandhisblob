@@ -47,10 +47,10 @@ PLRSPC LDA BNIDX        ; SHIFT BEAN INDEX TO USE AS       A5 98
        ASL              ; QTY INDEX (QTY IS STORED AS      0A
        TAX              ; 2 BYTES)                         AA
 
-       LDA BNQTY[0],X   ; CHECK 1ST BYTE OF CURRENT        BD BE 02
+       LDA BNQTY,X      ; CHECK 1ST BYTE OF CURRENT        BD BE 02
        BNE PLURAL       ; BEAN QTY                         D0 0E
 
-       LDA BNQTY[1],X   ; CHECK 2ND BYTE                   BD BF 02
+       LDA BNQTY+1,X    ; CHECK 2ND BYTE                   BD BF 02
        CMP #$01                                            C9 01
        BEQ SPACE                                           F0 06
 
