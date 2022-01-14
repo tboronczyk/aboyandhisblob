@@ -52,6 +52,8 @@ Here are some pretty screenshots:
 
 ![Intro screen](images/screenshot-1.png)
 
-![Game play - properly pluralized bean names 1](images/screenshot-2.png)
+![Credits screen](images/screenshot-2.png)
 
-![Game play - properly pluralized bean names 2](images/screenshot-3.png)
+![Game play - properly pluralized bean names 1](images/screenshot-3.png)
+
+![Game play - properly pluralized bean names 2](images/screenshot-4.png)
