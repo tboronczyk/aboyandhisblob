@@ -28,7 +28,7 @@ scripts the final patching and invokes unix/Linux utilities. You can either use
 Special thanks also to **sewave** for his
 [Spanish translation](https://github.com/sewave/translations/tree/master/nes/boyandhisblobatroubleonblobolonianes).
 
-## Completed
+### Completed
 
 The following tasks are (more or less) complete.
 
@@ -37,7 +37,7 @@ The following tasks are (more or less) complete.
   * Translate game credits
   * Update background tiles (signs)
 
-## To Do  
+### To Do  
 
 The following tasks are still outstanding (in approximate order of importance).
 **Contributors are welcome!**
