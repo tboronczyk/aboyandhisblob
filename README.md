@@ -34,6 +34,7 @@ The following tasks are (more or less) complete.
 
   * Modify font files for esperanto letters
   * Translate and replace in-game text (bean selection)
+  * Translate game credits
   * Update background tiles (signs)
 
 ## To Do  
@@ -42,7 +43,6 @@ The following tasks are still outstanding (in approximate order of importance).
 **Contributors are welcome!**
 
   * Shop text
-  * Translate game credits
   * Translate winning end text
   * Build/patching documentation
 
