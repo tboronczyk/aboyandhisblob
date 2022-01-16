@@ -1,13 +1,24 @@
-The message area at the bottom of the screen shows the quantity of
-jellybeans. The word “JELLYBEAN” is plural when the quantity is not 1.
-Example:
+The message area at the bottom of the screen shows the quantity of jellybeans.
+The word “JELLYBEAN” is plural when the quantity is not 1. For example:
 
     72 LICORICE JELLYBEANS
      1 LICORICE JELLYBEAN
      0 LICORICE JELLYBEANS
 
-The "S" is added by code (JELLYBEAN is stored at ROM $0EA0, JELLYBEANS
-at ROM $0D33 is used for treasure, not for this)
+Esperanto denotes plural using "J". Furthermore, it requires adjectives to
+agree in number with their nouns (i.e. also be plural). Whether a quantity is
+plural or not follows the same as in Engish. For example:
+
+    72 LAKRICAJ ĴELEEROJ
+     1 LAKRICA ĴELEERO
+     0 LAKRICAJ ĴELEEROJ
+
+The plural is added via code (JELLYBEAN is stored at ROM $0EA0, JELLYBEANS at
+$0D33 is used when collected as treasure, not for this). Thus, properly
+translating jellybean quantities will require modifying bytecode to change the
+plural marker and to selectively apply it to the flavor text.
+
+-------------------------------------------------------------------------------
 
     ROM $0DAA-0DC5 pointer table for text strings
     ROM $0DC6-0EA9 Text strings for jellybean flavors and effects
@@ -19,9 +30,9 @@ at ROM $0D33 is used for treasure, not for this)
     RAM $02BE-02D7 BNQTY  quantity of jelly beans (stored as hex, for
                           example 72 is 0x00 0x72)
 
-
 @0C06
--------------------------
+------------------------
+; APPLY TO FLAVOR -
 ; OVERWRITE EXISTING TO
 ; JMP TO PLRSPC
 ;
@@ -30,6 +41,7 @@ JSR PLRSPC                   20 21 CC
 
 @0C22
 ------------------------
+; APPLY TO JELLYBEAN -
 ; OVERWRITE EXISTING TO
 ; JMP TO PLRSPC
 ;
@@ -40,8 +52,8 @@ NOP                          EA
 
 @1CC31 ($CC21)
 -------------------------------------------------------
-; CONDITIONALLY WRITE "J" TO PLURALIZE THE PRECEEDING
-; WORD AND THEN ADD A SPACE
+; CONDITIONALLY PLURALIZE THE PRECEEDING WORD AND THEN
+; ADD A SPACE
 ;
 PLRSPC LDA BNIDX        ; SHIFT BEAN INDEX TO USE AS       A5 98
        ASL              ; QTY INDEX (QTY IS STORED AS      0A
@@ -54,11 +66,11 @@ PLRSPC LDA BNIDX        ; SHIFT BEAN INDEX TO USE AS       A5 98
        CMP #$01                                            C9 01
        BEQ SPACE                                           F0 06
 
-PLURAL LDA #$14         ; J IS TILE OFFSET 14              A9 14
+PLURAL LDA #$14         ; "J" IS TILE OFFSET 0x14          A9 14
        STA MSGTXT,Y                                        99 A2 02
        INY                                                 C8
 
-SPACE  LDA #$00         ; SPACE IS TILE OFFSET 00          A9 00
+SPACE  LDA #$00         ; SPACE IS TILE OFFSET 0x00        A9 00
        STA MSGTXT,Y                                        99 A2 02
        INY                                                 C8
 
