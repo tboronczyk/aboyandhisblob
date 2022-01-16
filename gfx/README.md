@@ -14,6 +14,7 @@ The following table identifies graphic files of interest.
 | [`287A0.bin`](287A0.bin) | 2BPP NES | health foods sign 1
 | [`28850.bin`](28850.bin) | 2BPP NES | health foods sign 2
 | [`28EA0.bin`](28EA0.bin) | 2BPP NES | font (X, Y)
+| [`28F10.bin`](28F10.bin) | 2BPP NES | "VITAMINO" (for space saving)
 | [`298D0.bin`](298D0.bin) | 2BPP NES | street sign 1
 | [`29A00.bin`](29A00.bin) | 2BPP NES | street sign 2
 | [`29AD0.bin`](29AD0.bin) | 2BPP NES | graffiti 1
