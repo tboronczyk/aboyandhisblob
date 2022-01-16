@@ -1,95 +1,131 @@
-Most text is drawn to the screen using one of three routines that place tiles
-into PPU.
+The credits, store text, and victory text are drawn to the screen by
+transfering tile values to the PPU.
 
-The first routine consists of a series of 32 consecutive STA instructions.
+Text tile values (see sprite*.tbl files):
+
+        0 1 2 3 4 5 6 7 8 9 A B C D E F
+      +--------------------------------
+    0 |   0 1 2 3 4 5 6 7 8 9 A B C D E
+    1 | F G H I J K L M N O P Ĉ R S T U
+    2 | V Ĝ Ĵ Ŝ Z = Ŭ
+   ...
+    D |                               !
+    E | " ' ( ) , - . .   X Y
+
+Three subroutines are used to transfer values to the PPU. The first consists
+of a series of 32 consecutive STA instructions:
 
     DRAW_REPEAT:
-    03:B980: STA PPU_DATA
-    03:B983: STA PPU_DATA
-    03:B986: STA PPU_DATA
+    03:B980: STA $2007   ; PPU_DATA
+    03:B983: STA $2007
+    03:B986: STA $2007
     ...
 
-Jumping to the start of this routine draws the same tile 32 times. For example:
+Loading a value to the accumulator and jumping to the subroutine will draw
+that tile 32 times.
 
-    STA #$0B  ; STORE "A" (TILE 0B)
+    STA #$0B  ; "A" (TILE 0x0B)
     JMP DRAW_REPEAT
 
-...will result in 32 A's drawn across the screen, like so:
-
-    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    ; RESULTS IN 32 A'S DRAWN ACROSS THE SCREEN
+    ; AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 A lesser number can drawn by jumping to the appropriate place in the series.
-For example, to draw 27 A's, jump past the first five STA instructions.
+For example, to draw 30 A's, jump past the first two instructions.
 
-The second routine is a series of 21 consecutive tiles starting with the
-provided tile.
+    STA #$0B
+    JMP DRAW_REPEAT+6  ; 2 x 3 BYTES PER INSTRUCTION
+
+    ; RESULTS IN 30 A'S DRAWN ACROSS THE SCREEN
+
+The second subroutine is writes a series of 21 consecutive values. 
 
     DRAW_CONSEC:
-    03:B9EE: STA PPU_DATA
+    03:B9EE: STA $2007
     03:B9F1: ADC #$01
-    03:B9F3: STA PPU_DATA
+    03:B9F3: STA $2007
     03:B9F6: ADC #$01
-    03:B9F8: STA PPU_DATA
+    03:B9F8: STA $2007
     03:B9FB: ADC #$01
     ...
 
-Again, jumping to the appropriate place in the series will allow you to draw
-less. For example, to draw the alphabet, jump to start of the routine to print
-A-U and then jump to the 16th STA instruction to print V-Z.
+Again, jumping to the appropriate place in the series allows you to draw less.
+For example, to display the alphabet, jump to start of the subroutine to write
+A-U and then jump to the 16th STA instruction to write V-Z.
 
-The third routine prints 11 characters from a memory location.
+    STA #$0B  ; "A" (TILE 0x0B)
+    JMP DRAW_CONSEC
+    STA #$20  ; "V" (TILE 0x20)
+    JMP DRAW_CONSEC+80  ; 16 x 5 BYTES PER INSTRUCTION
 
-    DRAW_STR:
-    03:BA61: STA PPU_DATA
+The third subroutine writes 11 characters. The address of the characters is
+read from $00B7.
+
+    DRAW_STRING:
+    03:BA61: STA $2007
     03:BA64: LDA ($B7),Y
     03:BA66: INY
-    03:BA67: STA PPU_DATA
+    03:BA67: STA $2007
     03:BA6A: LDA ($B7),Y
     03:BA6C: INY
     ...
 
-The text itself is thus stored as a series of offsets into these routines
-(relative to the executing code) followed by the desired tile indexes.
+An example that writes HELLO WORLD:
 
-Printing A 32 times across the screen is thus encoded as:
+    ; ASSUME THE FOLLOWING BYTES
+    ; (TILE OFFSETS FOR HELLO WORLD)
+    ; ARE STORED AT $6E20
+    ;   12 0F 16 16 10 00 21 19 1C 16 0D
 
-         3E  0B
+    LDA #$20    ; STORE MEMORY ADDRESS
+    STA $B7     ; AT $00B7
+    LDA #$6E
+    STA $B8
+
+    STY #$00    ; INIT Y REGISTER
+    JSR DRAW_STRING
+
+The credits, store text, and victory text are "encoded" in memory as a series
+of bytes - the first byte is the offset into one of the above subroutines
+followed by the desired tile indexes.
+
+Printing 32 spaces across the screen is thus encoded as:
+
+         3E  00
         --- ---
          |   |
      offset value
 
 Printing "HELLO WORLD" is encoded as:
 
-
          7E  12 0F 16 16 10 00 21 19 1C 16 0D
         --- ---------------------------------
          |                 |
      offset              values
 
+Offsets are provided relative to the executing code; here are some offsets
+(calculate others as needed):
 
-Here are some offsets (calculate others as needed):
-
-    7E xx xx xx xx xx xx xx xx xx xx xx   print 11 bytes
-    78 xx xx xx xx xx xx xx xx            print 8 bytes
-    72 xx xx xx xx xx                     print 5 bytes
-    6E xx xx xx                           print 3 bytes
-    6A xx                                 print byte
+    7E xx xx xx xx xx xx xx xx xx xx xx   writes 11 bytes
+    78 xx xx xx xx xx xx xx xx            writes 8 bytes
+    72 xx xx xx xx xx                     writes 5 bytes
+    6E xx xx xx                           writes 3 bytes
+    6A xx                                 writes byte
     
-    42 xx    print seq of 2 tiles starting with xx
+    42 xx    writes seq of 2 tiles starting with xx
     
-    3E xx    print tile 32 times
-    2E xx    print tile 24 times
-    0E xx    print tile 8 times
-    04 xx    print tile 3 times
-    02 xx    print tile 2 times
-    
-    00 return (end of text drawing)
+    3E xx    writes tile 32 times
+    2E xx    writes tile 24 times
+    0E xx    writes tile 8 times
+    04 xx    writes tile 3 times
+    02 xx    writes tile 2 times
 
-Also interspersed in the text format is 80 40 xx xx.
+Offset 0x00 signals the end of tile/text placement.
 
-80 40 temporarily leaves tile placement and shuffles around some memory
-pointers, and is followed by the PPU ADDR where tile placement should begin
-again (big endian). For example:
+Also interspersed in the format is 80 40 xx xx. This temporarily leaves the
+routine to shuffle around some memory pointers and presumably perform some
+other bookkeeping tasks. xx xx then is the PPU_ADDR where tile placement
+should resume (big endian). Examples:
 
     80 40 00 F0
     80 40 01 C2 
