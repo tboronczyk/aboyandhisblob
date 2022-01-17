@@ -67,5 +67,5 @@ dd if=gfx/29B90.bin of="$ROM" conv=notrunc bs=1 seek=170896
 dd if=gfx/29CE0.bin of="$ROM" conv=notrunc bs=1 seek=171232
 dd if=gfx/29DF0.bin of="$ROM" conv=notrunc bs=1 seek=171504
 ## "VITAMINO" (for space saving)
-dd if=gfx/28F10.bin of="$ROM" conv=notrunc bs=1 seek=167696
+dd if=gfx/28ED0.bin of="$ROM" conv=notrunc bs=1 seek=167632
 
