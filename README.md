@@ -57,3 +57,5 @@ Here are some pretty screenshots:
 ![Game play - properly pluralized bean names 1](images/screenshot-3.png)
 
 ![Game play - properly pluralized bean names 2](images/screenshot-4.png)
+
+![Game play - store text](images/screenshot-5.png)
