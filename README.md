@@ -3,8 +3,7 @@
 This project is a fan translation of
 [A Boy and His Blob](https://en.wikipedia.org/wiki/A_Boy_and_His_Blob:_Trouble_on_Blobolonia),
 a video game for the Nintendo Entertainment System, to Esperanto. All
-copyrights to the original game belong to Nintendo and Absolute Entertainment
-and no infringement is intended.
+copyrights to the original game belong to Nintendo and Absolute Entertainment.
 
 ## Requirements
 You *must* own a physical copy of the Boy and His Blob cartridge. Downloading
@@ -35,6 +34,7 @@ The following tasks are (more or less) complete.
   * Modify font files for esperanto letters
   * Translate and replace in-game text (bean selection)
   * Translate game credits
+  * Translate store text text
   * Update background tiles (signs)
 
 ### To Do  
@@ -42,7 +42,6 @@ The following tasks are (more or less) complete.
 The following tasks are still outstanding (in approximate order of importance).
 **Contributors are welcome!**
 
-  * Translate buy vitamins text
   * Translate victory text
   * Build/patching documentation
 
