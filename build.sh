@@ -47,6 +47,8 @@ dd if=asm/00C22.bin of="$ROM" conv=notrunc bs=1 seek=3106
 dd if=asm/1CC31.bin of="$ROM" conv=notrunc bs=1 seek=117809
 ## credits
 dd if=text/0C2CB.bin of="$ROM" conv=notrunc bs=1 seek=49867
+## store text
+dd if=text/0A55A.bin of="$ROM" conv=notrunc bs=1 seek=42330
 
 echo "\nUpdating graphics..."
 ## title screen copyright
