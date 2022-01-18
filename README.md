@@ -35,6 +35,7 @@ The following tasks are (more or less) complete.
   * Translate and replace in-game text (bean selection)
   * Translate game credits
   * Translate store text text
+  * Translate victory text
   * Update background tiles (signs)
 
 ### To Do  
@@ -42,7 +43,6 @@ The following tasks are (more or less) complete.
 The following tasks are still outstanding (in approximate order of importance).
 **Contributors are welcome!**
 
-  * Translate victory text
   * Build/patching documentation
 
 ## Screenshots

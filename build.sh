@@ -49,6 +49,8 @@ dd if=asm/1CC31.bin of="$ROM" conv=notrunc bs=1 seek=117809
 dd if=text/0C2CB.bin of="$ROM" conv=notrunc bs=1 seek=49867
 ## store text
 dd if=text/0A55A.bin of="$ROM" conv=notrunc bs=1 seek=42330
+## victory text
+dd if=text/0A0F9.bin of="$ROM" conv=notrunc bs=1 seek=41209
 
 echo "\nUpdating graphics..."
 ## title screen copyright
