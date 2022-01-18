@@ -70,4 +70,10 @@ dd if=gfx/29CE0.bin of="$ROM" conv=notrunc bs=1 seek=171232
 dd if=gfx/29DF0.bin of="$ROM" conv=notrunc bs=1 seek=171504
 ## "VITAMINO" (for space saving)
 dd if=gfx/28EE0.bin of="$ROM" conv=notrunc bs=1 seek=167648
-
+## on/off switches
+dd if=gfx/39550.bin of="$ROM" conv=notrunc bs=1 seek=234832
+dd if=gfx/39550.bin of="$ROM" conv=notrunc bs=1 seek=251472
+dd if=gfx/39680.bin of="$ROM" conv=notrunc bs=1 seek=235136
+dd if=gfx/39680.bin of="$ROM" conv=notrunc bs=1 seek=251552
+dd if=gfx/39840.bin of="$ROM" conv=notrunc bs=1 seek=235584
+dd if=gfx/39840.bin of="$ROM" conv=notrunc bs=1 seek=253568

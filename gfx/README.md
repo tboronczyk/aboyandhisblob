@@ -21,3 +21,7 @@ The following table identifies graphic files of interest.
 | [`29B90.bin`](29B90.bin) | 2BPP NES | graffiti 2
 | [`29CE0.bin`](29CE0.bin) | 2BPP NES | graffiti 3
 | [`29DF0.bin`](29DF0.bin) | 2BPP NES | graffiti 4
+| [`39550.bin`](39550.bin) | 2BPP NES | on switch 1
+| [`39680.bin`](39680.bin) | 2BPP NES | on switch 2
+| [`39840.bin`](39840.bin) | 2BPP NES | off switch
+
