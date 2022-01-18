@@ -36,7 +36,7 @@ dd if=gfx/25010.bin of="$ROM" conv=notrunc bs=1 seek=245776
 dd if=gfx/25010.bin of="$ROM" conv=notrunc bs=1 seek=249872
 dd if=gfx/25010.bin of="$ROM" conv=notrunc bs=1 seek=253968
 dd if=gfx/25010.bin of="$ROM" conv=notrunc bs=1 seek=258064
-## X Y
+## H X Y
 dd if=gfx/28EA0.bin of="$ROM" conv=notrunc bs=1 seek=167584
 
 echo "\nUpdating text..."
