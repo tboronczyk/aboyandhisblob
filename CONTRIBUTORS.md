@@ -8,5 +8,5 @@ The following people have contributed to the success of this project:
 translation, graphic editing, programming, patching
 
 **Zerbie Hynson/[Terpomo11](https://www.reddit.com/user/terpomo11)**  
-translation
+translation review
 
