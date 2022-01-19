@@ -6,11 +6,11 @@ Text tile values (see sprite*.tbl files):
         0 1 2 3 4 5 6 7 8 9 A B C D E F
       +--------------------------------
     0 |   0 1 2 3 4 5 6 7 8 9 A B C D E
-    1 | F G H I J K L M N O P Ĉ R S T U
-    2 | V Ĝ Ĵ Ŝ Z = Ŭ
+    1 | F G Ŭ I J K L M N O P Ĉ R S T U
+    2 | V Ĝ Ĵ Ŝ Z =
    ...
     D |                               !
-    E | " ' ( ) , - . .   X Y
+    E | " ' ( ) , - . .   H X Y
 
 Three subroutines are used to transfer values to the PPU. The first consists
 of a series of 32 consecutive STA instructions:
@@ -110,8 +110,10 @@ Offsets are provided relative to the executing code; here are some offsets
     78 xx xx xx xx xx xx xx xx            writes 8 bytes
     72 xx xx xx xx xx                     writes 5 bytes
     6E xx xx xx                           writes 3 bytes
+    6C xx xx                              writes 2 bytes
     6A xx                                 writes byte
     
+    46 xx    writes seq of 4 tiles starting with xx
     42 xx    writes seq of 2 tiles starting with xx
     
     3E xx    writes tile 32 times
