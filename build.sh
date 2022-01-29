@@ -53,6 +53,11 @@ dd if=text/0A55A.bin of="$ROM" conv=notrunc bs=1 seek=42330
 dd if=text/0A0F9.bin of="$ROM" conv=notrunc bs=1 seek=41209
 
 echo "\nUpdating graphics..."
+## remove posessive
+dd if=gfx/24080.bin of="$ROM" conv=notrunc bs=1 seek=147584
+dd if=gfx/24140.bin of="$ROM" conv=notrunc bs=1 seek=147776
+## subtitle
+dd if=gfx/247A0.bin of="$ROM" conv=notrunc bs=1 seek=149408
 ## title screen copyright
 dd if=gfx/24A90.bin of="$ROM" conv=notrunc bs=1 seek=150160
 ## subway

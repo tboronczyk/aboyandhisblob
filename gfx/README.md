@@ -6,6 +6,9 @@ The following table identifies graphic files of interest.
 
 | File | Format | Description |
 |---|---|---|
+| [`24080.bin`](24080.bin) | 2BPP NES | title screen remove 'S 1
+| [`24140.bin`](24140.bin) | 2BPP NES | title screen remove 'S 2
+| [`247A0.bin`](247A0.bin) | 2BPP NES | subtitle
 | [`24A90.bin`](24A90.bin) | 2BPP NES | title screen license text
 | [`25010.bin`](25010.bin) | 2BPP NES | font (esperantized)
 | [`27800.bin`](27800.bin) | 2BPP NES | subway sign 1
