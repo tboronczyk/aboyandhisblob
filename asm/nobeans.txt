@@ -1,0 +1,31 @@
+@0C97
+------------------------
+; OVERWRITE EXISTING TO
+; JUMP TO "NUL" QTY WRITE
+;
+JSR $CC3E              20 3E CC
+NOP                    EA
+NOP                    EA
+NOP                    EA
+NOP                    EA
+NOP                    EA
+NOP                    EA
+NOP                    EA
+NOP                    EA
+NOP                    EA
+
+@1CC4E
+------------------------
+; WRITE "NUL" QUANTITY
+;
+LDA #$18             A9 18
+STA MSGTXT,Y         99 A2 02
+INY                  C8
+LDA #$1F             A9 1F
+STA MSGTXT,Y         99 A2 02
+INY                  C8
+LDA #$16             A9 16
+STA MSGTXT,Y         99 A2 02
+INY                  C8
+RTS                  60
+

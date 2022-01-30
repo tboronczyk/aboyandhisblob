@@ -45,6 +45,10 @@ dd if=text/00D33.bin of="$ROM" conv=notrunc bs=1 seek=3379
 dd if=asm/00C06.bin of="$ROM" conv=notrunc bs=1 seek=3078
 dd if=asm/00C22.bin of="$ROM" conv=notrunc bs=1 seek=3106
 dd if=asm/1CC31.bin of="$ROM" conv=notrunc bs=1 seek=117809
+## no beans
+dd if=asm/00C97.bin of="$ROM" conv=notrunc bs=1 seek=3223
+dd if=asm/1CC4E.bin of="$ROM" conv=notrunc bs=1 seek=117838
+	
 ## credits
 dd if=text/0C2CB.bin of="$ROM" conv=notrunc bs=1 seek=49867
 ## store text
