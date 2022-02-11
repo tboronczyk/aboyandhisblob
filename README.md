@@ -1,7 +1,7 @@
 # A Boy and His Blob: Trouble in Blobolonia
 
 This project is a fan translation of
-[A Boy and His Blob](https://en.wikipedia.org/wiki/A_Boy_and_His_Blob:_Trouble_on_Blobolonia),
+[A Boy and His Blob: Trouble in Blobolonia](https://en.wikipedia.org/wiki/A_Boy_and_His_Blob:_Trouble_on_Blobolonia),
 a video game for the Nintendo Entertainment System, to Esperanto. All
 copyrights to the original game belong to Nintendo and Absolute Entertainment.
 
