@@ -2,13 +2,15 @@
 
 set -e
 
-if [ "$#" -ne 1 ]; then
-    echo "usage: $(basename "$0") ROM" 1>&2
-    exit
-fi
-ROM="$1"
+ORIG='Boy and His Blob, A - Trouble on Blobolonia (U) [!].nes'
+ROM="aboyandhisblob-eo.nes"
+IPS="aboyandhisblob-eo.ips"
+FLIPS="wine /opt/floating/flips.exe"
 
-echo "\nUpdating font..."
+echo "GENERATING ROM AND IPS FROM $ORIG..."
+cp "$ORIG" "$ROM"
+
+echo "Updating font..."
 dd if=gfx/25010.bin of="$ROM" conv=notrunc bs=1 seek=$((0x25010))
 dd if=gfx/25010.bin of="$ROM" conv=notrunc bs=1 seek=$((0x26010))
 dd if=gfx/25010.bin of="$ROM" conv=notrunc bs=1 seek=$((0x27010))
@@ -37,7 +39,7 @@ dd if=gfx/25010.bin of="$ROM" conv=notrunc bs=1 seek=$((0x3E010))
 dd if=gfx/25010.bin of="$ROM" conv=notrunc bs=1 seek=$((0x3F010))
 dd if=gfx/28EA0.bin of="$ROM" conv=notrunc bs=1 seek=$((0x28EA0)) ## H, X, Y
 
-echo "\nUpdating text..."
+echo "Updating text..."
 ## flavors, effects, etc.
 dd if=text/00D33.bin of="$ROM" conv=notrunc bs=1 seek=$((0x00D33))
 ## plural
@@ -54,7 +56,7 @@ dd if=text/0A55A.bin of="$ROM" conv=notrunc bs=1 seek=$((0x0A55A))
 ## victory text
 dd if=text/0A0F9.bin of="$ROM" conv=notrunc bs=1 seek=$((0x0A0F9))
 
-echo "\nUpdating graphics..."
+echo "Updating graphics..."
 ## remove posessive
 dd if=gfx/24080.bin of="$ROM" conv=notrunc bs=1 seek=$((0x24080))
 dd if=gfx/24140.bin of="$ROM" conv=notrunc bs=1 seek=$((0x24140))
@@ -86,3 +88,8 @@ dd if=gfx/39680.bin of="$ROM" conv=notrunc bs=1 seek=$((0x39680))
 dd if=gfx/39680.bin of="$ROM" conv=notrunc bs=1 seek=$((0x3D6A0))
 dd if=gfx/39840.bin of="$ROM" conv=notrunc bs=1 seek=$((0x39840))
 dd if=gfx/39840.bin of="$ROM" conv=notrunc bs=1 seek=$((0x3DE80))
+
+echo "Generating Patch..."
+$FLIPS -c -i "$ORIG" "$ROM" "$IPS"
+
+echo "Done"
