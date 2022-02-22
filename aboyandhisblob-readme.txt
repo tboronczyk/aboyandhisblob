@@ -1,12 +1,53 @@
 A Boy and His Blob: Trouble on Blobolonia (NES)
-Traduko al Esperanto v1.0 (19/01/2022)
-BluePhoenix
+Traduko al Esperanto v1.1 (xx/xx/2022)
+http://github.com/tboronczyk/aboyandhisblob
+
+PRISKRIBO
+---------
+Samekiel multaj aliaj knaboj en la dudek-unua jarcento, la
+knabo havas amikon de kosma spaco. Ĝi devenas de Blobolonio --
+planedo, kie malbona reĝo devigas ĉiujn manĝi marŝmalojn kaj
+ĉokoladon. Fakte, al la reĝo, sanigaj manĝaĵoj, kiel
+vitaminaĵoj, estas venenaj.
+
+Blob (kies vera nomo estas Bloberto) venis al la Tero serĉante
+helpon por veniki la reĝon. Tiel li renkontis la knabon.
+
+Por venki la malbonan reĝon, la knabo kaj Blob bezonas
+provizon da vitaminaĵoj. Kaj por akiri la vitaminaĵojn, ili
+bezonas monon. Kaj por akiri monon, ili serĉos kaŝitajn
+trezorojn kaj diamantojn en la subteraj kavernoj.
+
+Nu, kion faru la knabo? Li fajfu (tio vokas al Blob) kaj donu
+ĵeleerojn al ĝi!
+
+La knabo mirinde malkovris, ke Blob ne nur ŝatas ĵeleerojn --
+sed diversaj gustoj ŝanĝas ĝin en diversajn formojn. Kaj tiuj
+formoj helpos trapasi la alie netrapaseblajn situaciojn.
+
+Kun sufiĉaj ĵeleeroj en sufiĉaj gustoj, io ajn eblas!
 
 INFORMOJ PRI ROM
 ----------------
 A Boy and His Blob - Trouble on Blobolonia (USA).nes
 MD5: 61D431D155B503C378778062BDA9CF5D
-SHA-1: 74E43903D7B7A8D6B17E53F2774A4B2D26A2EA9A
 CRC32: 20A9E4A2
 
-Github: http://github.com/tboronczyk/aboyandhisblob
+HISTORIO
+--------
+v1.1  xx/xx/2022
+ - Tradukis subtitolon
+ - Korektis "NUL ĴELEEROJ"
+ - Aldoni grafikaĵojn
+
+v1.0  19/01/2022
+ - Unua eldono
+
+KONTRIBUANTOJ
+-------------
+Timoteo BORONCZYK/bluephoenix
+ - Tradukado, grafikaĵoj, programado
+
+Zerbie HYNSON/Terpomo11
+ - Traduka konsultisto
+
