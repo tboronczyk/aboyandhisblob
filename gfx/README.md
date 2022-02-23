@@ -1,4 +1,4 @@
-# A Boy and His Blob
+# A Boy and His Blob: Trouble on Blobolonia
 
 ## GFX
 
