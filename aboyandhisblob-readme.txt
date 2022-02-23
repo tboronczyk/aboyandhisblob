@@ -3,8 +3,8 @@ Traduko al Esperanto v1.1 (xx/xx/2022)
 
 ENKONDUKO
 ---------
-Ĉi tiu projekto estas traduko al Esperanto de A Boy and
-His Blob: Trouble on Blobolonia, videoludo por la Nintendo
+Ĉi tiu projekto estas Esperanta traduko de A Boy and His
+Blob: Trouble on Blobolonia, videoludo por la Nintendo
 Entertainment System. La retpaĝo por la projekto estas
 
     http://github.com/tboronczyk/aboyandhisblob
@@ -38,7 +38,7 @@ INFORMOJ PRI ROM
 ----------------
 Vi devas posedi fizikan kopion de la kartoĉo de A Boy and
 His Blob. Alŝulti ROM-on de videoludo, kiun vi ne posedas,
-povus esti pirateco.
+povas esti pirateco.
 
     A Boy and His Blob - Trouble on Blobolonia (USA).nes
     MD5: 61D431D155B503C378778062BDA9CF5D
