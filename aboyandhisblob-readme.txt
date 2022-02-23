@@ -1,9 +1,16 @@
 A Boy and His Blob: Trouble on Blobolonia (NES)
 Traduko al Esperanto v1.1 (xx/xx/2022)
-http://github.com/tboronczyk/aboyandhisblob
 
-PRISKRIBO
+ENKONDUKO
 ---------
+Ĉi tiu projekto estas traduko al Esperanto de A Boy and
+His Blob: Trouble on Blobolonia, videoludo por la Nintendo
+Entertainment System. La retpaĝo por la projekto estas
+
+    http://github.com/tboronczyk/aboyandhisblob
+
+PRISKRIBO DE LUDO
+-----------------
 Samekiel multaj aliaj knaboj en la dudek-unua jarcento, la
 knabo havas amikon de kosma spaco. Ĝi devenas de Blobolonio --
 planedo, kie malbona reĝo devigas ĉiujn manĝi marŝmalojn kaj
@@ -29,9 +36,13 @@ Kun sufiĉaj ĵeleeroj en sufiĉaj gustoj, io ajn eblas!
 
 INFORMOJ PRI ROM
 ----------------
-A Boy and His Blob - Trouble on Blobolonia (USA).nes
-MD5: 61D431D155B503C378778062BDA9CF5D
-CRC32: 20A9E4A2
+Vi devas posedi fizikan kopion de la kartoĉo de A Boy and
+His Blob. Alŝulti ROM-on de videoludo, kiun vi ne posedas,
+povus esti pirateco.
+
+    A Boy and His Blob - Trouble on Blobolonia (USA).nes
+    MD5: 61D431D155B503C378778062BDA9CF5D
+    CRC32: 20A9E4A2
 
 HISTORIO
 --------
