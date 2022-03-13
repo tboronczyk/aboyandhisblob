@@ -1,5 +1,5 @@
 A Boy and His Blob: Trouble on Blobolonia (NES)
-Traduko al Esperanto v1.1 (xx/xx/2022)
+Traduko al Esperanto v1.1 (12/03/2022)
 
 ENKONDUKO
 ---------
@@ -46,7 +46,7 @@ povas esti pirateco.
 
 HISTORIO
 --------
-v1.1  xx/xx/2022
+v1.1  12/03/2022
  - Tradukis subtitolon
  - Korektis "NUL ĴELEEROJ"
  - Aldoni grafikaĵojn
