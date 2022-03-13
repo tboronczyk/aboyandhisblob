@@ -20,10 +20,10 @@ The following table identifies graphic files of interest.
 | [`28ED0.bin`](28ED0.bin) | 2BPP NES | "VITAMINO" (for space saving)
 | [`298D0.bin`](298D0.bin) | 2BPP NES | street sign 1
 | [`29A00.bin`](29A00.bin) | 2BPP NES | street sign 2
-| [`29AD0.bin`](29AD0.bin) | 2BPP NES | graffiti 1
-| [`29B90.bin`](29B90.bin) | 2BPP NES | graffiti 2
-| [`29CE0.bin`](29CE0.bin) | 2BPP NES | graffiti 3
-| [`29DF0.bin`](29DF0.bin) | 2BPP NES | graffiti 4
+| [`29AC0.bin`](29AC0.bin) | 2BPP NES | graffiti 1
+| [`29B80.bin`](29B80.bin) | 2BPP NES | graffiti 2
+| [`29C90.bin`](29C90.bin) | 2BPP NES | graffiti 3
+| [`29D90.bin`](29D90.bin) | 2BPP NES | graffiti 4
 | [`39550.bin`](39550.bin) | 2BPP NES | on switch 1
 | [`39680.bin`](39680.bin) | 2BPP NES | on switch 2
 | [`39840.bin`](39840.bin) | 2BPP NES | off switch
